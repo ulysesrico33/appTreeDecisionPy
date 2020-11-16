@@ -1,0 +1,17 @@
+
+1)Algoritmos a usar:
+1.1) árboles de decisión
+1.1.2) Código basado en https://www.datacamp.com/community/tutorials/decision-tree-classification-python?utm_source=adwords_ppc
+2.1)Bayes
+2.1.1) Código basado en https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn
+
+2)Obener métricas de ambos 
+3)Instalar Python 3.8.5
+
+Pendiente:
+
+-gráficas de árbol de decisión
+
+Sitio oficial: https://graphviz.org/download/
+Instalar graphviz : https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.msi
+
