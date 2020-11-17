@@ -1,7 +1,7 @@
 import pandas as pd
 import openpyxl
 from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
-from sklearn.model_selection import train_test_split # Import train_test_split function
+from sklearn.model_selection import train_test_split  # Import train_test_split function
 from sklearn import metrics #Import scikit-learn metrics module for accuracy calculation
 from sklearn.tree import export_graphviz
 from six import StringIO  
@@ -10,6 +10,8 @@ import pydotplus
 from datetime import datetime
 import psutil
 import time
+from sklearn import preprocessing
+from sklearn.naive_bayes import GaussianNB
 
  
 
@@ -51,6 +53,16 @@ def obtenerArbolDec(dataSet,op):
 
 def obtenerBayes(dataSet):
     print('Elaborando proceso de Bayes...')
+    print('Establenciendo variables independientes (X) y dependientes (Y)...')
+    col_indep = ['Desc_curso','carrera']
+    X = dataSet[col_indep] 
+    col_dep = ['NOTA_CURSO<12']
+    Y = dataSet[col_dep]
+    X_train, X_test, y_train, y_test = train_test_split(X,Y, test_size=0.3,random_state=109)
+    gnb = GaussianNB()
+    gnb.fit(X_train, y_train)
+    y_pred = gnb.predict(X_test)
+    print("Exactitud:",metrics.accuracy_score(y_test, y_pred))
     print('-----Fin proceso de Bayes------')  
 
 def verPrimerosDatos(dataSet):
